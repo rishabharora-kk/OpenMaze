@@ -1,0 +1,15 @@
+name: Deception experiment
+description: Propose an owned-environment experiment with a baseline.
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Falsifiable hypothesis and baseline
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Authorized local target, harness, budgets, measurements and stopping criteria
+    validations:
+      required: true

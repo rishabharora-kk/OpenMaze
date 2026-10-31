@@ -43,10 +43,14 @@ jobs:
         with:
           name: research-${{ github.sha }}
           path: research
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: paper-draft
+          path: paper-artifact
       - run: sha256sum --check dist/SHA256SUMS
       - name: Create draft with tested assets
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.ref_name }}
-        run: gh release create "$RELEASE_TAG" dist/* research/*.json --verify-tag --draft --generate-notes
+        run: gh release create "$RELEASE_TAG" dist/* research/* paper-artifact/* --verify-tag --draft --generate-notes

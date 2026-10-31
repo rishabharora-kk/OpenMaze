@@ -1,0 +1,603 @@
+{
+  "scope": "owned synthetic experiments; scripts and tiny-model capability failures are not LLM efficacy evidence",
+  "artifacts": [
+    {
+      "file": "adaptive.json.gz",
+      "scope": "clean committed scripted/HTTP measurement",
+      "uncompressed_bytes": 23594503,
+      "gzip_bytes": 302150,
+      "raw_sha256": "46593a85bc58e97845987931a21f0acc8dbe2ee565942a6d0b5d9df2d2a561ce",
+      "gzip_sha256": "9e7eedd9218dd915a5d6cce8c5ed40c44d39c4a00552b501275f94c5558fddf6",
+      "runs": 6480,
+      "config": {
+        "trials": 30,
+        "split": "evaluation",
+        "seed_base": 50000,
+        "configs": [
+          [
+            3,
+            24
+          ],
+          [
+            3,
+            40
+          ],
+          [
+            3,
+            64
+          ],
+          [
+            4,
+            24
+          ],
+          [
+            4,
+            40
+          ],
+          [
+            4,
+            64
+          ],
+          [
+            5,
+            24
+          ],
+          [
+            5,
+            40
+          ],
+          [
+            5,
+            64
+          ]
+        ],
+        "visibilities": [
+          "clear",
+          "opaque"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "load.json.gz",
+      "scope": "clean committed scripted/HTTP measurement",
+      "uncompressed_bytes": 740974,
+      "gzip_bytes": 71919,
+      "raw_sha256": "8d414e68fba13e4c19131257bfa93d1fea20d77464cc72babc168bd4c305f032",
+      "gzip_sha256": "acb38249c705aedb18806ba321b410aa4b555f4d70be72be6bd146d642b234b2",
+      "runs": 6,
+      "config": {
+        "repetitions": 3,
+        "seed": 2026,
+        "duration": 5.0,
+        "legitimate_rate": 10.0,
+        "probe_rate": 50.0,
+        "workers": 16
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "matched.json.gz",
+      "scope": "clean committed scripted/HTTP measurement",
+      "uncompressed_bytes": 23484627,
+      "gzip_bytes": 323195,
+      "raw_sha256": "20414e0428ff6db257e0693298589ad807d913a6f962906358cbbc95aa270b20",
+      "gzip_sha256": "7ff3f189802fa1f0babc460612f792314d30883c031c286087f546a9aabeb66e",
+      "runs": 4320,
+      "config": {
+        "trials": 30,
+        "seed_base": 60000,
+        "depth": 4,
+        "budgets": [
+          40,
+          64
+        ],
+        "presentations": [
+          "original",
+          "matched_schema",
+          "matched_schema_and_degree"
+        ],
+        "visibilities": [
+          "clear",
+          "opaque"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "objective.json.gz",
+      "scope": "clean committed scripted/HTTP measurement",
+      "uncompressed_bytes": 1312735,
+      "gzip_bytes": 21171,
+      "raw_sha256": "1c9864db54cea7c95bf9347de2fff4dcc7429ff636ebde209edc4b235b695008",
+      "gzip_sha256": "fa4a320259aefa905762074758cecc30a33cd4725e07316db71df7ac4f445304",
+      "runs": 270,
+      "config": {
+        "trials": 30,
+        "seed": 10000,
+        "budget": 40,
+        "depth": 4
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "pilot.json.gz",
+      "scope": "clean committed scripted/HTTP measurement",
+      "uncompressed_bytes": 454145,
+      "gzip_bytes": 9626,
+      "raw_sha256": "54df40850d74b5753a0adea2a940a2aa53c05c7be10f9b35301b253a8ca4ed8a",
+      "gzip_sha256": "c88b81a135d92441f58e602518bd59026fd0c34ffed372b911ab37875d2e3f42",
+      "runs": 270,
+      "config": {
+        "trials": 30,
+        "seed": 2026,
+        "budget": 25
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "qwen-smoke-final.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 19088,
+      "gzip_bytes": 3049,
+      "raw_sha256": "64f99a82b8340f58d5e2e050201779a759ca120444bbb96e02882cc35643edc2",
+      "gzip_sha256": "eb057af97d2f019de0c1b3268afae399bc64169e332085686f2297bb311b0315",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 70000,
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "3d15a6e7919d475811baadaccc907cf1a79512ad9761bd15a677bc6e4b634ee0",
+          "benchmarks/local_model.py": "d3f5f41b14b03d24e56e85a5d1a3701f5c571c174e5cf4273d6f375571241589",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "qwen-smoke-v1.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 7552,
+      "gzip_bytes": 2559,
+      "raw_sha256": "cc85f32077c47a781cedc4d1e5dea2a4c825b01e17ef9702df177b43a8a2242c",
+      "gzip_sha256": "6fc6c42fa2dad0ae15e6689d34ea6e6a459ce233eada804606ef2dd38126018e",
+      "runs": 3,
+      "config": {
+        "trials": 1,
+        "seed": 70000,
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "3d15a6e7919d475811baadaccc907cf1a79512ad9761bd15a677bc6e4b634ee0",
+          "benchmarks/local_model.py": "01a2a53cb12d842e07d524587f6aaad1c39ee98ad0bd62ba2358d3801c5d99fd",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "qwen-smoke-v2-evaluation.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 19058,
+      "gzip_bytes": 3085,
+      "raw_sha256": "5e064c74f88586889d3236ba4f50967985fcf03edfae04e8caedecdaf7e0e8c9",
+      "gzip_sha256": "99adbd7d2b5db9c75b245b9fb59f4c69cc26e197a204ad3e8fe615a634c0af0c",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 80000,
+        "split": "evaluation",
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "28c12a0e6e8759d0c89ed74d12a726340ad6a04cdeece6e0d1d346064fe1b56a",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "qwen-smoke-v3-evaluation.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 23151,
+      "gzip_bytes": 3667,
+      "raw_sha256": "c37a89a834b8f1ccb7c262f8b48297251ecd3a08ab236d60115cf7b0a0587e01",
+      "gzip_sha256": "d41539dbd2f28605c65bf3e746ffc73e99926b8eb6c26d915d580b7e188a1277",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 90000,
+        "split": "evaluation",
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "smollm-smoke-final.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 19095,
+      "gzip_bytes": 3058,
+      "raw_sha256": "40790985ae64d02393ac40f11921486c805fdcfcea3fc086c8b92557008e87fb",
+      "gzip_sha256": "2d1f4b75c7250e81fb496ab4b305f8fd03e26f966a58c16706b35f52b3e37f28",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 70000,
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "3d15a6e7919d475811baadaccc907cf1a79512ad9761bd15a677bc6e4b634ee0",
+          "benchmarks/local_model.py": "d3f5f41b14b03d24e56e85a5d1a3701f5c571c174e5cf4273d6f375571241589",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "smollm-smoke-v2-evaluation.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 97947,
+      "gzip_bytes": 5910,
+      "raw_sha256": "1a0bf73fe9ce02266b0d60b4d9042bde1a543c2e0e5963b57fe1c2987b25af24",
+      "gzip_sha256": "3a4c783ab181de2c941c0e178c809380594c652dcb924675f3e63e88f3b02f6d",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 80000,
+        "split": "evaluation",
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    },
+    {
+      "file": "smollm-smoke-v3-evaluation.json.gz",
+      "scope": "model smoke; v1/v2 are development failures; v3 is frozen tiny capability smoke",
+      "uncompressed_bytes": 129889,
+      "gzip_bytes": 10435,
+      "raw_sha256": "13049c87cdba2dd6afa5cdb219145278a0e503d637909c138cfc9e04632786e4",
+      "gzip_sha256": "d5e11981493c34b625e5a1873c93730a0b7d04ac39ab0350d58c231c639db2a2",
+      "runs": 6,
+      "config": {
+        "trials": 2,
+        "seed": 90000,
+        "split": "evaluation",
+        "budget": 12,
+        "depth": 2,
+        "visibility": "opaque",
+        "observation_fields": [
+          "links",
+          "record",
+          "error"
+        ]
+      },
+      "provenance": {
+        "source_kind": "git_checkout",
+        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
+        "dirty": true,
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "source_sha256": {
+          "openmaze/__init__.py": "51ea636db289150519f78ac13ce39f0bb8b073eedc13dded9521b109a73126e9",
+          "openmaze/__main__.py": "0406f4b11343e71ca14b4740e1307c30d1fab70a33f1f4e334fb816d4db212f5",
+          "openmaze/common.py": "a3d7a7efa3e3280a791f1133119657bada74918308f610fde60e3fb3206e7298",
+          "openmaze/decoy.py": "c4590dc7862b106dd02919616efd15fa26327aea0a6f1af9add2b78047b9b68d",
+          "openmaze/gateway.py": "ee997a293573dfa6465e5f1df9536978f3c4d7cb434c541c6533330ea585b169",
+          "openmaze/protected.py": "25fab9b0639e075e01761f7c9299eeddca6ab25ef4609436747310b9ad7dc18d",
+          "openmaze/receipts.py": "0daba22ba1eb67f94907d96e81e992c4710b81b8fc4f087069104fabedb775ca",
+          "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
+          "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
+          "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
+          "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
+          "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
+          "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
+        }
+      }
+    }
+  ]
+}

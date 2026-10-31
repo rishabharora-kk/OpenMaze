@@ -5,3 +5,5 @@ recursive-include benchmarks *.py
 recursive-include scripts *.py
 recursive-include tests *.py
 recursive-include docs *.md
+include requirements-paper.txt
+recursive-include paper *.md *.bib *.png *.svg *.json *.gz

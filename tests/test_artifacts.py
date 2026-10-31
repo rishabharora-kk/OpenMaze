@@ -13,7 +13,7 @@ class ArtifactTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.artifact = experiment(2, seed=42)
-        cls.artifact['provenance'] = {'source_sha256': {'fixture': 'fixture'}}
+        cls.artifact['provenance'] = {'source_sha256': {'fixture.py': '0' * 64}}
 
     def verify(self, artifact):
         with tempfile.TemporaryDirectory() as directory:
@@ -44,3 +44,50 @@ class ArtifactTests(unittest.TestCase):
         first['arm'], other['arm'] = other['arm'], first['arm']
         with self.assertRaises(ValueError):
             self.verify(artifact)
+
+
+    def test_rejects_impossible_or_corrupted_aggregate_results(self):
+        for section, field, value in [('summary', 'success_rate', 123),
+                                      ('summary', 'mean_requests', -1),
+                                      ('summary', 'n', 123),
+                                      ('contrasts', 'success_rate_difference', 123),
+                                      ('contrasts', 'paired_world_bootstrap_95_interval', [-1, 1])]:
+            with self.subTest(section=section, field=field):
+                artifact = copy.deepcopy(self.artifact)
+                artifact[section][0][field] = value
+                with self.assertRaises(ValueError):
+                    self.verify(artifact)
+
+    def test_rejects_nonfinite_metrics_and_bad_source_digest(self):
+        for value in (float('nan'), float('inf'), float('-inf')):
+            with self.subTest(value=value):
+                artifact = copy.deepcopy(self.artifact)
+                artifact['summary'][0]['mean_requests'] = value
+                with self.assertRaises(ValueError):
+                    self.verify(artifact)
+        artifact = copy.deepcopy(self.artifact)
+        artifact['provenance']['source_sha256']['fixture.py'] = 'not-a-digest'
+        with self.assertRaises(ValueError):
+            self.verify(artifact)
+
+    def test_rejects_mismatched_seed_budget_and_depth(self):
+        for field, value in [('seed', -100), ('budget', 39), ('depth', 3)]:
+            with self.subTest(field=field):
+                artifact = copy.deepcopy(self.artifact)
+                artifact['runs'][0][field] = value
+                with self.assertRaises(ValueError):
+                    self.verify(artifact)
+
+    def test_valid_pilot_and_corrupt_pilot_aggregate(self):
+        from benchmarks.pilot import experiment as pilot
+        artifact = pilot(2, seed=42)
+        artifact['provenance'] = {'source_sha256': {'fixture.py': '0' * 64}}
+        self.verify(artifact)
+        artifact['summary'][0]['mean_cpu_ns'] += 1000
+        with self.assertRaises(ValueError):
+            self.verify(artifact)
+
+    def test_short_budget_control_is_not_mislabeled_as_failure(self):
+        artifact = experiment(2, seed=42, budget=1)
+        artifact['provenance'] = {'source_sha256': {'fixture.py': '0' * 64}}
+        self.verify(artifact)

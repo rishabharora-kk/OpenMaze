@@ -4,9 +4,11 @@ Every branch push and pull request runs `.github/workflows/tests.yml`:
 
 | Job | Gate |
 | --- | --- |
+| Workflow syntax | Checksum-verified actionlint validates all workflow files |
 | Security and protocol | Full unit/process suite on Python 3.11, 3.12 and 3.13 |
-| Research artifact checks | Two 270-run scripted experiments; paired blocks, budgets, bytes, oracle control and zero protected operations |
-| Build and install distribution | Wheel/sdist build, metadata validation, clean-venv wheel installation outside checkout |
+| Research artifact checks | Two 270-run experiments plus small adaptive/matched factorial checks; independently recomputed paired aggregates, budgets and byte populations |
+| Build and install distribution | Wheel/sdist build, metadata validation, clean-venv wheel installation and extracted-sdist benchmark reproduction outside Git |
+| Research draft | Build a labeled PDF/standalone HTML with embedded fonts and source/figure manifest |
 | Container boundaries and lifecycle | Build; deny/maze Compose runs; verified client; tenant rejection; effective quotas/mounts/network; decoy egress; upstream failure; socket cleanup |
 
 Research traces and the Python package inventory are retained as Actions artifacts
@@ -26,7 +28,7 @@ do not receive provider secrets and do not call paid models.
 Pushing a `v*` tag runs the complete CI workflow again at that tag. After all jobs
 pass, the delivery job requires the tag to equal `v` plus `project.version`,
 downloads the already-tested distributions, checks their hashes, and creates a
-**draft GitHub Release** containing distributions and research JSON artifacts.
+**draft GitHub Release** containing distributions, research artifacts/package inventory, and the checked PDF/HTML draft.
 It does not rebuild those assets or deploy a public service. A mismatched tag or
 existing release causes failure. On partial release-upload failure, inspect the
 draft and its assets before retrying; the workflow does not overwrite releases.
@@ -75,3 +77,19 @@ by digest; review and refresh it deliberately along with dependency updates.
 
 References: [reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows)
 and [draft release CLI](https://cli.github.com/manual/gh_release_create).
+
+
+## Continuous research reproduction
+
+`.github/workflows/research.yml` runs on main updates, manual dispatch and a daily
+00:00 UTC schedule (nominally 05:30 IST; runner queueing can delay execution). It
+first reuses the full CI gates, then collects the complete 6,480-run adaptive and
+4,320-run matched-presentation scripted designs, a short paired HTTP pilot, raw
+traces, independently checked aggregates and regenerated descriptive figures.
+It retains these as run-specific artifacts. It does not rewrite a manuscript's
+reported historical numbers or imply that repeated scripted execution adds
+independent model evidence. Model weights/inference remain opt-in local work.
+
+To build the draft locally: `python -m pip install -r requirements-paper.txt`,
+then `python -m scripts.build_paper`. The PDF/HTML are placed in `artifacts/paper/`.
+See `paper/README.md` for measured-data provenance and regeneration commands.

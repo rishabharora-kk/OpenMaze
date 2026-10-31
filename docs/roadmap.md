@@ -9,7 +9,10 @@
 - [ ] Replace experimental envelope with a reviewed RFC 9421 profile/library.
 - [x] Benchmark-only static decoy, scripted source-aware controls, paired trials and task oracle.
 - [x] CI package/container/research gates and tag-driven draft release workflow.
-- [ ] Expose static baseline over HTTP and implement a pinned adaptive-agent adapter.
+- [x] Observation-only adaptive controls and opt-in pinned local-model smoke adapter.
+- [x] Response-matched schema/degree follow-up and independent aggregate validation.
+- [x] HTTP legitimate-client/per-role resource instrumentation and paper/PDF CI.
+- [ ] Expose static baseline over HTTP and evaluate capable agents on realistic held-out task families.
 - [ ] Measure sustained-load behavior and legitimate-client impact.
 - [ ] Independent security review before any external deployment.
 

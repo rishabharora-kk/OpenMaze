@@ -99,6 +99,8 @@ def generate(adaptive_path, load_path, output, matched_path=None):
         for suffix in ('png', 'svg'):
             fig.savefig(output / f'matched-control.{suffix}', dpi=180)
         plt.close(fig)
+    for svg in output.glob('*.svg'):
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines()) + '\n')
     inputs = {}
     datasets = [(adaptive_path, adaptive), (load_path, load)]
     if matched is not None:

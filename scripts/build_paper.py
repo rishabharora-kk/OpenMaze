@@ -28,7 +28,7 @@ def inline(tokens):
         elif token.type in ('softbreak', 'hardbreak'):
             result.append(' ' if token.type == 'softbreak' else '<br/>')
         elif token.type == 'code_inline':
-            result.append('<font name="Courier">' + html.escape(token.content) + '</font>')
+            result.append('<font name="PaperMono">' + html.escape(token.content) + '</font>')
         elif token.type in ('strong_open', 'strong_close', 'em_open', 'em_close'):
             tag = 'b' if token.type.startswith('strong') else 'i'
             result.append('<' + ('/' if token.nesting < 0 else '') + tag + '>')

@@ -164,3 +164,9 @@ The [task-diversion study protocol](docs/study-protocol.md) adds a reachable
 synthetic objective and a ground-truth success oracle. Run it with
 `python -m benchmarks.objective --output artifacts/objective.json`.
 Scripted construct checks do not establish adaptive-agent efficacy.
+
+The [development manuscript](paper/main.md) reports adaptive scripted controls,
+a response-matching follow-up, local HTTP instrumentation and explicitly limited
+small-model smoke checks. See the [paper artifact guide](paper/README.md) to build
+the PDF and inspect the measured data. CI builds the draft; main updates and a
+nightly workflow reproduce scripted/load experiments without downloading models.

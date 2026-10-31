@@ -47,8 +47,11 @@ Before claiming container isolation, on a supported Docker host:
 6. Saturate the decoy and inspect resource growth, log rotation and legitimate
    request latency. Stop/start services and verify socket lifecycle/fail-closed errors.
 
-The implementation runner has no Docker and prohibits filesystem AF_UNIX sockets.
-Those deployment checks are outstanding; local TCP process tests were executed.
+The current runner has executed Docker build/Compose smoke checks, effective
+container-setting inspections, decoy mount and direct IPv4/IPv6 egress checks,
+Unix-socket lifecycle and upstream failure checks. See [validation](validation.md).
+These checks do not exhaustively test host paths, DNS, cloud metadata, container
+escape or sustained-load behavior. Those wider deployment claims remain unverified.
 
 ## Failure and availability limits
 

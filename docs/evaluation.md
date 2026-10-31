@@ -14,7 +14,7 @@ are used. It is deliberately not a performance/SLO or AI-robustness claim.
 
 ## Next controlled experiment
 
-Arms: A deny-only, B static decoy (not yet implemented), C consistent bounded maze.
+Arms: A deny-only, B static decoy (implemented in the in-process benchmark only), C consistent bounded maze.
 Keep protected data, policy, target objectives and agent budget identical. Evaluate
 receipt behavior separately. Include informed and uninformed agents, short-timeout
 callers, parallel workers, new sessions and valid limited credentials.
@@ -39,3 +39,15 @@ increase below 10% relative to the same deny-only deployment.
 Proceed beyond the lab only if the maze improves detection decisions or reduces
 attacker objective progress at acceptable defender cost. Remove it if it merely
 creates more activity. No AI-agent efficacy measurement has been performed.
+
+## Reproducible ablation pilot
+
+`python -m benchmarks.pilot --trials 30 --seed 2026 --output results/pilot.json`
+adds benchmark-only static inventory and three scripted caller controls, randomized
+arm order, per-run route traces and source/runtime provenance. This is a harness
+pilot, not an AI-agent study. See [research assessment and study specification](research-plan.md)
+for results, confounds, the missing task-success oracle and publication gates.
+
+`python -m benchmarks.objective --output artifacts/objective.json` adds a genuine
+synthetic task and oracle. See the [development protocol](study-protocol.md) for
+paired analysis, current construct-check results and the required agent study.

@@ -1,0 +1,7 @@
+include README.md LICENSE SECURITY.md CONTRIBUTING.md CODE_OF_CONDUCT.md
+include Dockerfile compose.yaml .dockerignore
+recursive-include openmaze *.py
+recursive-include benchmarks *.py
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include docs *.md

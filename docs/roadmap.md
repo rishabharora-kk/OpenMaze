@@ -4,10 +4,12 @@
 - [x] Independent backend authorization and signed-response client.
 - [x] Consistent bounded decoy and negative security tests.
 - [x] Scripted deny/maze comparison and CI definition.
-- [ ] Validate Docker build, effective runtime constraints and decoy isolation.
-- [ ] Run Unix-socket lifecycle and reachability tests on an unrestricted Linux runner.
+- [x] Validate Docker build, effective runtime settings and basic decoy mount/egress boundaries.
+- [x] Run Unix-socket lifecycle and reachability checks on a Docker-capable Linux runner.
 - [ ] Replace experimental envelope with a reviewed RFC 9421 profile/library.
-- [ ] Add static-decoy baseline, source-aware agent harness and reproducible trials.
+- [x] Benchmark-only static decoy, scripted source-aware controls, paired trials and task oracle.
+- [x] CI package/container/research gates and tag-driven draft release workflow.
+- [ ] Expose static baseline over HTTP and implement a pinned adaptive-agent adapter.
 - [ ] Measure sustained-load behavior and legitimate-client impact.
 - [ ] Independent security review before any external deployment.
 

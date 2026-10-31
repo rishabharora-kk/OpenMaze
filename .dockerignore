@@ -1,7 +1,14 @@
 .git
-.venv
+.github
 .openmaze
+.venv
 __pycache__
 *.egg-info
+build
+dist
+artifacts
+results
 tests
 benchmarks
+scripts
+docs

@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "openmaze"
 version = "0.1.0"
 description = "A bounded, local API deception research testbed"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["cryptography==50.0.2"]
 license = {text = "Apache-2.0"}

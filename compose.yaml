@@ -1,5 +1,6 @@
 x-service: &service
   build: .
+  image: "${OPENMAZE_IMAGE:-openmaze:local}"
   user: "${OPENMAZE_UID:-1000}:${OPENMAZE_GID:-1000}"
   read_only: true
   cap_drop: [ALL]
@@ -34,7 +35,7 @@ services:
     <<: *service
     command: [serve, gateway, --state, /state, --transport, unix, --host, 0.0.0.0, --mode, "${OPENMAZE_MODE:-deny}"]
     depends_on: [protected, decoy]
-    ports: ["127.0.0.1:8080:8080"]
+    ports: ["127.0.0.1:${OPENMAZE_PORT:-8080}:8080"]
     cpus: 0.5
     volumes:
       - ./.openmaze/auth.json:/state/auth.json:ro

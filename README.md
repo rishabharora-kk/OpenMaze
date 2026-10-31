@@ -129,10 +129,9 @@ State must be initialized first; Docker users must match its owner. Filesystem
 permissions are intentional. Do not solve permission errors by mounting the whole
 state directory or making keys world-readable.
 
-**Validation limit:** Docker is unavailable in the implementation runner; the
-container build, runtime limits, Unix sockets and egress isolation have not been
-verified there. Do not treat this configuration as a tested deployment boundary.
-The local TCP demo has been executed. See [deployment checks](docs/threat-model.md).
+Container build/runtime and boundary checks are exercised by the new CI job.
+See [validation evidence](docs/validation.md) for what has actually run and
+[deployment checks](docs/threat-model.md) for the limits of those checks.
 
 ## Research and contribution
 
@@ -149,3 +148,19 @@ deception adds useful telemetry or reduces agent progress at an acceptable
 defender cost, compared with denial or a simple static decoy.
 
 Licensed under [Apache-2.0](LICENSE).
+
+A [research assessment and study specification](docs/research-plan.md) identifies
+the evidence needed for a paper. Run the three-arm scripted pilot with
+`python -m benchmarks.pilot --trials 30 --seed 2026 --output results/pilot.json`.
+This adds a benchmark-only static-decoy control; it does not measure AI efficacy.
+
+## Continuous validation and releases
+
+[CI and delivery](docs/ci-cd.md) run protocol/security tests, research artifact
+checks, clean package installation and container boundary/lifecycle checks.
+Version tags prepare a checked draft GitHub Release.
+
+The [task-diversion study protocol](docs/study-protocol.md) adds a reachable
+synthetic objective and a ground-truth success oracle. Run it with
+`python -m benchmarks.objective --output artifacts/objective.json`.
+Scripted construct checks do not establish adaptive-agent efficacy.

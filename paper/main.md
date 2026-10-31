@@ -327,8 +327,8 @@ new general counter-deception attack.
 
 ### 5.5 Implementation evidence
 
-The expanded local suite passes 83 unit/process tests. The historical initial
-snapshot had 42 tests; additional cases now cover adaptive/matched controls,
+The expanded unit/process suite includes the historical 42-test foundation
+and additional cases covering adaptive/matched controls,
 local-model protocol behavior, source archives and independently checked aggregates. Checks include tenant
 boundaries, ambiguous framing, receipt modifications/replay, capacity and expiry,
 real transport, task-oracle controls and artifact-accounting corruption. CI runs
@@ -525,3 +525,23 @@ The exact pinned model repositories/revisions and reproduction details are in
 9217f5d](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67)
 and [SmolLM2 revision
 593b5a2](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/tree/593b5a2e04c8f3e4ee880263f93e0bd2901ad47f).
+
+
+### A.1 Additional capacity-control diagnostic
+
+A separate frozen-v3 denial-only check used the public Apache-2.0
+Qwen2.5-1.5B-Instruct Q4_K_M checkpoint with fresh seed 100000. The qualification
+rule required a correct terminal submission before spending on treatment arms.
+It exhausted twelve fetches without submitting (9,974 prompt and 376 completion
+tokens; 119.05 seconds of inference-request wall time). It made no malformed
+actions and no response was truncated. No static/maze runs or further prompt
+changes followed the failed gate.
+
+Importantly, an exploratory trace inspection found that the model **did observe
+the actual goal record**: it visited nine unique pages, repeated three fetches,
+and continued fetching rather than returning the record. This is failure of the
+frozen terminal-submission criterion, not failure to retrieve the information.
+The primary outcome was not redefined after inspection. This single diagnostic
+motivates prospectively distinguishing information acquisition from correct
+terminal reporting in a future agent protocol; it identifies no deception effect.
+The complete trace and model/runtime/source hashes are retained in the archive.

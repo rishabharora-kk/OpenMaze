@@ -105,3 +105,19 @@ Current integration suite has 83 passing tests plus two new archive-integrity
 regressions to run. No paid API used. The 1.5B capacity-control weights are
 verified outside the repository but inference/source-registry edits remain held
 until the current PR is pushed. Next phase must preserve the frozen v3 prompt.
+
+
+## Second integration and capacity gate
+
+PR7 merged after all eight CI jobs passed, at main commit
+`1ce83f6c04b657a2f8147ae156ffc44ccfd80bb5`. The 12-page development paper and
+compressed research evidence are now on main. Independent assembled review
+matched all clean raw hashes to commit 5c495df and all manuscript/figure values.
+
+The authorized 1.5B denial-only control has completed and stopped according to
+the prechosen gate: no submission within twelve fetches, but trace inspection
+shows it actually observed the goal record. Distinguish retrieval from terminal
+protocol adherence; never claim it could not retrieve the target. No treatment
+arms, additional model selection or prompt tuning followed. Its trace awaits
+archival integration on branch research/capacity-and-load. No inference remains
+active, so subsequent isolated HTTP measurement can proceed.

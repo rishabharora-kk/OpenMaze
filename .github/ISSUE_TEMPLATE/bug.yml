@@ -1,0 +1,14 @@
+name: Reproducible bug
+description: Synthetic local reproductions only; use SECURITY.md for vulnerabilities.
+body:
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Commit, environment, reproduction and expected/observed result
+      description: Do not include secrets, private data or public-target exploit details.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Relevant test or invariant

@@ -1,0 +1,7 @@
+.git
+.venv
+.openmaze
+__pycache__
+*.egg-info
+tests
+benchmarks

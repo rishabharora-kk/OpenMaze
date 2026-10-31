@@ -1,0 +1,43 @@
+x-service: &service
+  build: .
+  user: "${OPENMAZE_UID:-1000}:${OPENMAZE_GID:-1000}"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 32
+  mem_limit: 128m
+  cpus: 0.25
+  tmpfs: ["/tmp:size=16m,noexec,nosuid,nodev"]
+  logging:
+    driver: json-file
+    options:
+      max-size: "1m"
+      max-file: "2"
+
+services:
+  protected:
+    <<: *service
+    command: [serve, protected, --state, /state, --transport, unix]
+    network_mode: none
+    volumes:
+      - ./.openmaze/auth.json:/state/auth.json:ro
+      - ./.openmaze/signing.key:/state/signing.key:ro
+      - ./.openmaze/backend:/state/backend
+  decoy:
+    <<: *service
+    command: [serve, decoy, --state, /state, --transport, unix]
+    network_mode: none
+    volumes:
+      - ./.openmaze/decoy.seed:/state/decoy.seed:ro
+      - ./.openmaze/decoy:/state/decoy
+  gateway:
+    <<: *service
+    command: [serve, gateway, --state, /state, --transport, unix, --host, 0.0.0.0, --mode, "${OPENMAZE_MODE:-deny}"]
+    depends_on: [protected, decoy]
+    ports: ["127.0.0.1:8080:8080"]
+    cpus: 0.5
+    volumes:
+      - ./.openmaze/auth.json:/state/auth.json:ro
+      - ./.openmaze/backend:/state/backend:ro
+      - ./.openmaze/decoy:/state/decoy:ro
+      - ./.openmaze/logs:/state/logs

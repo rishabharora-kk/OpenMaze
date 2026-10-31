@@ -148,3 +148,14 @@ done
 Use fresh output paths on reruns. Do not select only favorable rates or infer a
 universal saturation threshold from this host. Treat the sweep as development
 unless its rates, exclusions and analysis were frozen before collecting it.
+
+
+## Clean-source archival recollection
+
+The paper table and current figure use `paper/data/load.json.gz`, recollected from
+clean source commit `5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4`, rather than the
+initial development timings above. Configuration and all 1,800 request outcomes
+remain the same; measured latencies/CPU vary with execution. Exact resource
+endpoints and hardware/quota metadata are retained and independently validated.
+See `paper/data/index.json` for raw/gzip hashes. The older development table is
+retained as historical evidence, not combined with the archival pilot samples.

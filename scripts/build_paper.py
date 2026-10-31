@@ -122,7 +122,7 @@ def build(source, output):
                     figure = Image(str(path))
                     scale = min((A4[0] - 1.5 * inch) / figure.imageWidth, 3.8 * inch / figure.imageHeight)
                     figure.drawWidth, figure.drawHeight = figure.imageWidth * scale, figure.imageHeight * scale
-                    story += [figure, Spacer(1, 8)]
+                    story += [figure, Paragraph(html.escape(child.content), styles['PaperCell']), Spacer(1, 10)]
                 continue
             style = styles['Title'] if heading == 1 else styles[f'Heading{min(heading - 1, 3)}'] if heading else styles['PaperBody']
             body = inline(token.children)
@@ -165,6 +165,8 @@ def build(source, output):
         inputs.append(bibliography)
     manifest = {'scope': 'formatted development draft; PDF creation does not establish scientific validity',
                 'provenance': provenance(),
+                'renderer_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                'reportlab_version': reportlab.Version,
                 'inputs': {str(p.relative_to(source.parent)): hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},
                 'fonts': {name: {'path': str(p), 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for name, p in font_files.items()},
                 'outputs': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (pdf, html_path)}}

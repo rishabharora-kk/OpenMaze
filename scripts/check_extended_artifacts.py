@@ -1,7 +1,8 @@
 """Independent accounting checks for adaptive-script and finite HTTP artifacts.
 
-These checks validate recorded evidence, not hidden oracle internals or unrecorded
-/proc endpoints. Resource CPU deltas can be bounded by samples, not reconstructed.
+These checks validate recorded evidence, not hidden oracle internals. With retained
+/proc endpoints CPU deltas and sampled maxima are recomputed; legacy artifacts
+without endpoints receive only nonnegative and recorded-sample consistency checks.
 """
 import json
 import math

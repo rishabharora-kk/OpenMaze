@@ -61,6 +61,7 @@ jobs:
       - run: python -m scripts.check_extended_artifacts artifacts/adaptive-smoke.json
       - run: python -m benchmarks.matched --trials 2 --output artifacts/matched-smoke.json
       - run: python -m scripts.check_extended_artifacts artifacts/matched-smoke.json
+      - run: python -m scripts.audit_paper_data
       - run: python -m pip freeze > artifacts/python-packages.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()

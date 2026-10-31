@@ -88,3 +88,20 @@ seeds starting 100000, no paid APIs and no more prompt tuning against results.
 First test denial capability; if it fails before meaningful task progress, stop
 rather than adding more model families. Wait until archival HTTP measurements
 finish before model inference to avoid deliberate CPU contention.
+
+
+## Archived snapshot ready for PR
+
+Clean-source measurement commit: `5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4`.
+Five archival files contain 270 engagement, 270 objective, 6,480 adaptive,
+4,320 matched and six paired HTTP deployment runs. All provenance flags are
+clean and independent validators pass. `paper/data/index.json` records complete
+compressed/raw hashes and source identities; earlier local-model developmental
+failures and frozen v3 traces are also archived (12 files, under 1 MB compressed).
+The PDF is now 12 pages. The paper's HTTP table/figure use the clean archival
+measurement, not the initial historical development timings retained in docs.
+
+Current integration suite has 83 passing tests plus two new archive-integrity
+regressions to run. No paid API used. The 1.5B capacity-control weights are
+verified outside the repository but inference/source-registry edits remain held
+until the current PR is pushed. Next phase must preserve the frozen v3 prompt.

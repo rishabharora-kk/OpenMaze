@@ -2,13 +2,12 @@
 
 **Research artifact draft — 1 November 2026. Not submitted or peer reviewed.**
 
-This draft reports the initial artifact snapshot at commit `6378e48`, a subsequent
-6,480-run adaptive-script factorial, a 4,320-run matched-presentation follow-up,
-and a local HTTP pilot. The later artifacts
-record source hashes and dirty-working-tree flags: their base commit alone does
-not identify their implementation. A tiny-model integration smoke is reported separately in Appendix A; it identifies
-no causal maze effect.
-Author names and affiliations must be supplied by the maintainers before submission.
+This draft reports scripted and local HTTP measurements recollected from clean
+source commit `5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4`. Full compressed raw
+artifacts and source identities are indexed in `paper/data/index.json`. The tiny
+local-model smoke was collected during development and retains its own source
+hashes, inputs, outputs and protocol history. Author names and affiliations must
+be supplied by the maintainers before submission.
 
 ## Abstract
 
@@ -328,8 +327,9 @@ new general counter-deception attack.
 
 ### 5.5 Implementation evidence
 
-At the historical initial snapshot, 42 unit/process tests pass; this count does
-not include later adaptive/load tests. Checks include tenant
+The expanded local suite passes 83 unit/process tests. The historical initial
+snapshot had 42 tests; additional cases now cover adaptive/matched controls,
+local-model protocol behavior, source archives and independently checked aggregates. Checks include tenant
 boundaries, ambiguous framing, receipt modifications/replay, capacity and expiry,
 real transport, task-oracle controls and artifact-accounting corruption. CI runs
 on Python 3.11–3.13 and checks workflow syntax, research outputs, distribution
@@ -341,7 +341,7 @@ security audit or an availability guarantee.
 
 ### 5.6 A local HTTP cost-instrumentation pilot
 
-A subsequent pilot runs three paired denial/maze blocks, each for five seconds,
+The archival HTTP pilot runs three paired denial/maze blocks, each for five seconds,
 with ten legitimate requests/s and fifty probes/s, using sixteen client workers.
 Each deployment starts fresh gateway, protected and decoy subprocesses. The
 gateway is loopback HTTP and the backends use filesystem Unix sockets. Traffic
@@ -358,9 +358,9 @@ no recorded client-capacity drops.
 
 | Paired block | Denial legitimate p95 (ms) | Maze legitimate p95 (ms) | Denial gateway CPU (s) | Maze gateway CPU (s) | Maze decoy CPU (s) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 0 | 2.662 | 2.104 | 0.10 | 0.14 | 0.04 |
-| 1 | 1.872 | 2.112 | 0.10 | 0.13 | 0.04 |
-| 2 | 1.908 | 2.158 | 0.10 | 0.13 | 0.05 |
+| 0 | 2.520 | 5.289 | 0.15 | 0.19 | 0.07 |
+| 1 | 2.485 | 2.086 | 0.11 | 0.13 | 0.06 |
+| 2 | 2.362 | 2.746 | 0.12 | 0.16 | 0.05 |
 
 Latency ends after reading the response body and excludes signature verification;
 verification is included in a separate total-processing measure. Percentiles use

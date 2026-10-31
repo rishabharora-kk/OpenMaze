@@ -1,8 +1,8 @@
 {
   "scope": "descriptive figures from scripted controls and short HTTP measurement; no LLM efficacy inference",
   "inputs": {
-    "openmaze-adaptive-factorial-v2.json": {
-      "sha256": "6fdda84cc0eb37fca74bc56732d092b61c8c84a5a8210c8ad0b1400558538dc0",
+    "archive-adaptive.json": {
+      "sha256": "46593a85bc58e97845987931a21f0acc8dbe2ee565942a6d0b5d9df2d2a561ce",
       "config": {
         "trials": 30,
         "split": "evaluation",
@@ -51,8 +51,9 @@
         ]
       },
       "provenance": {
-        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
-        "dirty": true,
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
         "python": "3.12.14",
         "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
         "source_sha256": {
@@ -67,16 +68,18 @@
           "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
           "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
           "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
-          "benchmarks/load.py": "29f3437e30bc35f2d8029bd13fb0c05e6a3b03c48beccfff8db870cb3673c6ca",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
           "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
           "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
-          "benchmarks/provenance.py": "a3844841885e66d05e6203e8a74b35baf9a001a2d5222835dbcf32aaf8417dbb",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
           "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
         }
       }
     },
-    "load-pilot.json": {
-      "sha256": "860035a0e116a2a75617c90e9a92bf6dbe8aef5f1d56596be4f4d38f1d6ea9c3",
+    "archive-load.json": {
+      "sha256": "8d414e68fba13e4c19131257bfa93d1fea20d77464cc72babc168bd4c305f032",
       "config": {
         "repetitions": 3,
         "seed": 2026,
@@ -86,8 +89,9 @@
         "workers": 16
       },
       "provenance": {
-        "commit": "6378e48b633ca5e8e1b17982b81316396c0a8fad",
-        "dirty": true,
+        "source_kind": "git_checkout",
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
         "python": "3.12.14",
         "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
         "source_sha256": {
@@ -101,17 +105,19 @@
           "openmaze/setup.py": "b24228a8e1fa2843dcd93446a6683aba8eca8ba96cf1438056fd80e437380816",
           "openmaze/transport.py": "4c9b6b602fde160174edcfcdd8329c008fc196f881e6d5404c2ac5696acbc61a",
           "benchmarks/__init__.py": "de87f8a9a864f2c3c7d8e785727903207794628afd26125b1af533826b4f48cc",
-          "benchmarks/adaptive.py": "d7d65747b95bfb21a1de5bd83a595210ecf4da0a210829a465eff73dbc4fdee4",
-          "benchmarks/load.py": "29f3437e30bc35f2d8029bd13fb0c05e6a3b03c48beccfff8db870cb3673c6ca",
+          "benchmarks/adaptive.py": "d08b7b98e730c3802d21f4d762697f0c737d921e2655e5d8707a73f62674c2ae",
+          "benchmarks/load.py": "d863a5d69002dc93f3efa05c4e0f2c564d02df5fb45d1656c69f02ce66a66f15",
+          "benchmarks/local_model.py": "48556bb1a3cfd77a0c732fbbc8ce83ea9c1ee81933685e8f315e61bac5446cb4",
+          "benchmarks/matched.py": "f57d05088a3858b2895ed9bd3d5a6cd78702a947db9d91a1848a354325d6bb73",
           "benchmarks/objective.py": "ab5376207e03903b0a1b388762451ce05c469d3f36d97c5d30a8db52c31f3cb6",
           "benchmarks/pilot.py": "4d09dc8c41f3a8ad810b9e05fe40911f06386d7f109d7fb9c15ee29a84efad6f",
-          "benchmarks/provenance.py": "a3844841885e66d05e6203e8a74b35baf9a001a2d5222835dbcf32aaf8417dbb",
+          "benchmarks/provenance.py": "395a476942edd273d2f4f8c6a671912a209c87974d7df7162f7ed21f5496da02",
           "benchmarks/scripted.py": "eb9bd74af2690089b31dec1446408cf91eafeb505d3bc00749ff6a85f89035dc"
         }
       }
     },
-    "openmaze-matched-presentation-v1.json": {
-      "sha256": "13061a9f5157c9f33aecd1d0e9b89afd0da2c3263dd994e3827e7f15c106a3d1",
+    "archive-matched.json": {
+      "sha256": "20414e0428ff6db257e0693298589ad807d913a6f962906358cbbc95aa270b20",
       "config": {
         "trials": 30,
         "seed_base": 60000,
@@ -132,8 +138,8 @@
       },
       "provenance": {
         "source_kind": "git_checkout",
-        "commit": "1ed86357f9edb189066b29153acdbebe67aaf95c",
-        "dirty": true,
+        "commit": "5c495dfd15e8323c82d3e68d8b539bac6ea9c2f4",
+        "dirty": false,
         "python": "3.12.14",
         "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
         "source_sha256": {
@@ -161,10 +167,10 @@
   },
   "outputs": {
     "adaptive-completion.png": "484dc827512938736b019d2d35d9b1b83b5f37c2d98eec462e5c3061c9853b36",
-    "adaptive-completion.svg": "3cd60e430d70ed32f9126e97d972acd3e88482d6f1281a8fedd841e5215b5cfc",
-    "load-pilot.png": "9bcf0eecc93a3756ae1400d9863ba68de664628aefdfdc36856537b80a3e437a",
-    "load-pilot.svg": "62158b623ca115958df3703c5c06c7b67fd647ab548211e79410602027eccf14",
+    "adaptive-completion.svg": "4d2b2e30b703f86c3f684c5cee76d523a73e8b4f6dfa337b5a6b17030f65a29d",
+    "load-pilot.png": "36e642be6abcae62433ce79b226b32cbb7a49a088813f88c1960d6dc3e1d5066",
+    "load-pilot.svg": "ede6dbfa1f7bfedc6c3b8b84d6aa335244dc8c203d4213e08d03b8b20053db2c",
     "matched-control.png": "4e75a0ae04657df95315a127a71fbccc95ba3dadea4c844988f341e7a059c6be",
-    "matched-control.svg": "8e67c448961a6ff9a01a0aacdee610719139e6115ddd0c4458da8d3e997044b7"
+    "matched-control.svg": "4359db06352942bdda99cb1d326a0e33221f1681ea9b4821183651ac50e375f5"
   }
 }

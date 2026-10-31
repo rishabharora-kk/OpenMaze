@@ -38,3 +38,7 @@ HTTP pilot is not an SLO. Tiny-model capability failures identify no maze effect
 There is no automatic paper submission or public deployment. A stronger paper
 still needs realistic task-family validation, capable pinned agents, a frozen
 analysis and sustained deployment-cost measurements.
+
+Run `python -m scripts.audit_paper_data` to verify gzip/raw hashes and independently
+recompute supported archived statistics without extracting files. Model-development
+traces receive integrity checks only; that audit makes no model-efficacy claim.

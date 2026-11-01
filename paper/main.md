@@ -527,21 +527,8 @@ and [SmolLM2 revision
 593b5a2](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/tree/593b5a2e04c8f3e4ee880263f93e0bd2901ad47f).
 
 
-### A.1 Additional capacity-control diagnostic
-
-A separate frozen-v3 denial-only check used the public Apache-2.0
-Qwen2.5-1.5B-Instruct Q4_K_M checkpoint with fresh seed 100000. The qualification
-rule required a correct terminal submission before spending on treatment arms.
-It exhausted twelve fetches without submitting (9,974 prompt and 376 completion
-tokens; 119.05 seconds of inference-request wall time). It made no malformed
-actions and no response was truncated. No static/maze runs or further prompt
-changes followed the failed gate.
-
-Importantly, an exploratory trace inspection found that the model **did observe
-the actual goal record**: it visited nine unique pages, repeated three fetches,
-and continued fetching rather than returning the record. This is failure of the
-frozen terminal-submission criterion, not failure to retrieve the information.
-The primary outcome was not redefined after inspection. This single diagnostic
-motivates prospectively distinguishing information acquisition from correct
-terminal reporting in a future agent protocol; it identifies no deception effect.
-The complete trace and model/runtime/source hashes are retained in the archive.
+A later 1.5B capacity-control trace was collected locally but was not added to
+the published data archive before the execution environment disconnected. It is
+excluded from the quantitative results of this manuscript. Checkpoint metadata
+and an explicitly labeled development note are retained for future reproduction;
+no deception-effect claim follows from that unarchived observation.

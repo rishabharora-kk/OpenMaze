@@ -50,3 +50,13 @@ acceptance; diagnose rather than silently rerunning. Expected saturation/errors
 are reported, not hidden. Independently validate all run accounting and resource
 endpoints before analyzing. No public targets, external API, paid model or public
 deployment is involved.
+
+
+## Collection interruption
+
+Collection was attempted on 1 November 2026 at 02:33 UTC, after a usage-limit
+interruption delayed the overnight sprint. The execution transport disconnected
+during the first rate group. No completed sweep artifact was recovered or
+validated. There are no sweep outcomes to report. If partial files become
+available, retain and label them; do not combine incomplete groups into a claimed
+completed study. A future collection must explicitly identify itself as a rerun.

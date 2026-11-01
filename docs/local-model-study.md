@@ -145,7 +145,14 @@ baseline task competence; if it exits before task progress under denial, stop
 rather than spending on additional treatment arms or tuning against outcomes.
 
 
-## Additional 1.5B capacity control: stopped after denial
+## Additional 1.5B capacity control: unarchived development observation
+
+**Evidence status:** the trace below was inspected locally, but it was not copied
+into the published data archive before the execution environment disconnected.
+It cannot currently be independently audited from the repository and is excluded
+from the manuscript's quantitative results. The numbers below are development
+notes, not validated archived findings. Recover and verify the original trace or
+collect a separately labeled rerun before using it as paper evidence.
 
 After freezing v3, one additional public capacity checkpoint was tested with the
 same prompt, tool schema, temperature, 12-fetch budget and depth-two task:

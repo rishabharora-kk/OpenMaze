@@ -143,3 +143,54 @@ A later, separately recorded capacity control may use a larger public checkpoint
 with the **same frozen v3 prompt/schema** and fresh seeds. It must first show
 baseline task competence; if it exits before task progress under denial, stop
 rather than spending on additional treatment arms or tuning against outcomes.
+
+
+## Additional 1.5B capacity control: unarchived development observation
+
+**Evidence status:** the trace below was inspected locally, but it was not copied
+into the published data archive before the execution environment disconnected.
+It cannot currently be independently audited from the repository and is excluded
+from the manuscript's quantitative results. The numbers below are development
+notes, not validated archived findings. Recover and verify the original trace or
+collect a separately labeled rerun before using it as paper evidence.
+
+After freezing v3, one additional public capacity checkpoint was tested with the
+same prompt, tool schema, temperature, 12-fetch budget and depth-two task:
+[Qwen2.5-1.5B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF),
+revision `91cad51170dc346986eccefdc2dd33a9da36ead9`, Q4_K_M file
+`qwen2.5-1.5b-instruct-q4_k_m.gguf`, 1117320736 bytes, SHA256
+`6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e`.
+The upstream metadata reports Apache-2.0. This is another size of the Qwen family,
+not a third independent model family.
+
+A denial-only capability gate preceded any treatment trial, using fresh seed
+100000. Qualification required oracle-verified submission. The run exhausted its
+budget with 12 fetches and 12 model calls, no submission, and primary success
+false. It used 9974 prompt tokens and 376 completion tokens; summed inference
+request wall time was 119.05 seconds. All calls reported finish reason `stop`;
+there were no HTTP timeouts, malformed actions or completion truncations.
+
+An exploratory trace diagnostic is important: the policy visited nine unique
+pages with three repeated fetches, including the actual non-null goal record.
+It made 11 task fetches and one denial-candidate fetch, but continued fetching
+instead of submitting the observed record. Thus it **did retrieve the target
+information**; it failed the prespecified terminal-submission protocol. Do not
+claim that this checkpoint was unable to navigate to the goal. Equally, do not
+redefine primary completion or the qualification rule after inspecting the trace.
+
+The gate did not qualify, so no static/maze arms, further model selection or prompt
+tuning were performed. This single observation supports a diagnostic of agent
+protocol adherence, not a model-capability ranking or a deception effect.
+Artifact: `/tmp/openmaze-qwen15-capability-v3.json`, containing full synthetic
+messages/actions and matching source hashes for archival integration.
+
+The CLI now supports explicit treatment selection for such controls:
+
+```bash
+python -m benchmarks.local_model   --server-bin /tmp/openmaze-model-runtime/llama-b12023/llama-server   --model-id qwen2.5-1.5b   --model-file /tmp/openmaze-model-runtime/qwen2.5-1.5b-instruct-q4_k_m.gguf   --trials 1 --arms deny --seed 100000   --output artifacts/local-qwen15-capability.json
+```
+
+The selected arms are recorded in configuration. Duplicate arms are rejected,
+and unit tests check denial-only selection and fresh observation histories. There
+are now seven fake-completion unit tests; these remain independent of weights
+and network access.

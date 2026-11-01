@@ -327,8 +327,8 @@ new general counter-deception attack.
 
 ### 5.5 Implementation evidence
 
-The expanded local suite passes 83 unit/process tests. The historical initial
-snapshot had 42 tests; additional cases now cover adaptive/matched controls,
+The expanded unit/process suite includes the historical 42-test foundation
+and additional cases covering adaptive/matched controls,
 local-model protocol behavior, source archives and independently checked aggregates. Checks include tenant
 boundaries, ambiguous framing, receipt modifications/replay, capacity and expiry,
 real transport, task-oracle controls and artifact-accounting corruption. CI runs
@@ -525,3 +525,10 @@ The exact pinned model repositories/revisions and reproduction details are in
 9217f5d](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/tree/9217f5db79a29953eb74d5343926648285ec7e67)
 and [SmolLM2 revision
 593b5a2](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct-GGUF/tree/593b5a2e04c8f3e4ee880263f93e0bd2901ad47f).
+
+
+A later 1.5B capacity-control trace was collected locally but was not added to
+the published data archive before the execution environment disconnected. It is
+excluded from the quantitative results of this manuscript. Checkpoint metadata
+and an explicitly labeled development note are retained for future reproduction;
+no deception-effect claim follows from that unarchived observation.

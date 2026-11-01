@@ -27,6 +27,13 @@ MODELS = {
         'bytes': 491400032,
         'sha256': '74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db',
     },
+    'qwen2.5-1.5b': {
+        'repository': 'Qwen/Qwen2.5-1.5B-Instruct-GGUF',
+        'revision': '91cad51170dc346986eccefdc2dd33a9da36ead9',
+        'filename': 'qwen2.5-1.5b-instruct-q4_k_m.gguf',
+        'bytes': 1117320736,
+        'sha256': '6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e',
+    },
     'smollm2-360m': {
         'repository': 'HuggingFaceTB/SmolLM2-360M-Instruct-GGUF',
         'revision': '593b5a2e04c8f3e4ee880263f93e0bd2901ad47f',
@@ -243,12 +250,27 @@ class LocalServer:
         self.log.close()
 
 
+def run_trials(completion, trials=2, seed=90000, budget=12, depth=2, arms=ARMS):
+    """Select controls explicitly; each trial starts with a fresh observation history."""
+    if (not 1 <= trials <= 10 or not arms or len(set(arms)) != len(arms)
+            or any(arm not in ARMS for arm in arms)):
+        raise ValueError('invalid smoke trial count or treatment selection')
+    rng, runs = random.Random(seed), []
+    for block in range(trials):
+        order = list(arms)
+        rng.shuffle(order)
+        for arm in order:
+            runs.append(trial(completion, arm, seed + block, budget, depth))
+    return runs
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--server-bin', type=Path, required=True)
     parser.add_argument('--model-file', type=Path, required=True)
     parser.add_argument('--model-id', choices=MODELS, required=True)
     parser.add_argument('--trials', type=int, default=2)
+    parser.add_argument('--arms', nargs='+', choices=ARMS, default=ARMS)
     parser.add_argument('--split', choices=('development', 'evaluation'), default='evaluation')
     parser.add_argument('--seed', type=int)
     parser.add_argument('--budget', type=int, default=12)
@@ -260,21 +282,19 @@ def main():
     if not 1 <= args.trials <= 10:
         parser.error('smoke adapter supports1..10 world blocks')
     args.seed = args.seed if args.seed is not None else (70000 if args.split == 'development' else 90000)
-    rng, runs = random.Random(args.seed), []
+    if len(set(args.arms)) != len(args.arms):
+        parser.error('treatment arms must be unique')
     with LocalServer(args.server_bin, args.model_file, args.model_id) as server:
         completion = LocalCompletion(server.port)
-        for block in range(args.trials):
-            arms = list(ARMS)
-            rng.shuffle(arms)
-            for arm in arms:
-                runs.append(trial(completion, arm, args.seed + block, args.budget, args.depth))
+        runs = run_trials(completion, args.trials, args.seed, args.budget, args.depth, args.arms)
         runtime = {**RUNTIME, 'version': server.version, 'binary_sha256': file_sha256(args.server_bin),
                    'threads': server.threads, 'context_tokens': 4096, 'temperature': 0,
                    'max_completion_tokens': completion.max_tokens, 'cache_prompt': False}
     artifact = {'schema_version': 1, 'scope': 'small local-model infrastructure smoke; not security efficacy',
                 'model': {'id': args.model_id, **MODELS[args.model_id]}, 'runtime': runtime,
                 'protocol': 'local-model-observation-smoke-v3',
-                'config': {'trials': args.trials, 'seed': args.seed, 'split': args.split, 'budget': args.budget, 'depth': args.depth,
+                'config': {'trials': args.trials, 'seed': args.seed, 'split': args.split, 'arms': list(args.arms),
+                           'budget': args.budget, 'depth': args.depth,
                            'visibility': 'opaque', 'observation_fields': ['links', 'record', 'error']},
                 'system_prompt': SYSTEM_PROMPT, 'action_schema': ACTION_SCHEMA,
                 'trace_scope': 'full synthetic model messages/completions/actions; no credentials or protected records',

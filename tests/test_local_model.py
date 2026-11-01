@@ -1,6 +1,6 @@
 import json
 import unittest
-from benchmarks.local_model import LocalCompletion, trial, validate_action
+from benchmarks.local_model import LocalCompletion, run_trials, trial, validate_action
 
 
 class LocalModelTests(unittest.TestCase):
@@ -67,3 +67,17 @@ class LocalModelTests(unittest.TestCase):
         self.assertEqual(1, result['model_calls'])
         self.assertEqual(3, result['usage']['completion_tokens'])
         self.assertEqual('ValueError', result['action_trace'][0]['error_class'])
+
+    def test_denial_only_capability_selection_is_fresh_and_complete(self):
+        histories = []
+        def finish(messages, seed):
+            histories.append(json.loads(messages[1]['content']))
+            return '{"tool":"finish","argument":null}', {}
+        runs = run_trials(finish, trials=2, seed=100000, arms=('deny',))
+        self.assertEqual(['deny', 'deny'], [run['arm'] for run in runs])
+        self.assertEqual([100000, 100001], [run['seed'] for run in runs])
+        self.assertEqual([1, 1], [len(state['observations']) for state in histories])
+        self.assertTrue(all(run['protected_operations'] == 0 for run in runs))
+        for arms in ((), ('deny', 'deny'), ('unknown',)):
+            with self.subTest(arms=arms), self.assertRaises(ValueError):
+                run_trials(finish, arms=arms)

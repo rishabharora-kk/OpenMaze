@@ -63,7 +63,7 @@ jobs:
       - run: python -m scripts.check_extended_artifacts artifacts/matched-smoke.json
       - run: python -m scripts.audit_paper_data
       - run: python -m pip freeze > artifacts/python-packages.txt
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: research-${{ github.sha }}
@@ -104,7 +104,7 @@ jobs:
               subprocess.run([sys.executable, 'scripts/check_artifacts.py', str(output)], cwd=root, check=True)
           PYCODE
       - run: sha256sum dist/* > dist/SHA256SUMS
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: distributions
           path: dist/*
@@ -137,7 +137,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -e . -r requirements-paper.txt
       - run: python -m scripts.build_paper
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: paper-draft
           path: artifacts/paper/*

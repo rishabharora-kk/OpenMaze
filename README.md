@@ -1,14 +1,17 @@
-# OpenMaze
+# OpenMaze — Bounded API Deception for AI Agents
 
-**Bounded API deception experiments for autonomous-agent probes.**
+OpenMaze is an **open-source AI agent security research testbed** for evaluating **API deception** and **honeypot-style decoys** against autonomous probes. It compares explicit denial with a bounded, navigable synthetic API maze, asking whether deception produces useful telemetry or reduces agent progress at an acceptable defender cost.
 
-OpenMaze puts explicit authorization in front of a synthetic private API. Optional
-uncredentialed traffic enters a separate, consistent decoy world. Authorized
-clients verify Ed25519 response receipts against a locally pinned key.
+### What it does
 
-This first prototype is a **local research testbed**. It does not permanently
-capture an AI, identify whether a caller is AI, or protect a production system.
-Attacker engagement and security benefit remain unmeasured.
+- **Separates real and decoy APIs.** An authorization gateway keeps protected tenant records away from uncredentialed probes.
+- **Offers a bounded decoy maze.** Synthetic inventory and plausible continuation links operate within finite request, session, time, and resource limits.
+- **Verifies trusted responses.** Authorized clients check Ed25519-signed response receipts against a locally pinned key.
+- **Supports reproducible evaluation.** Tests and scripted benchmarks compare deny-only, static-decoy, and maze behavior; see the [evaluation protocol](docs/evaluation.md) and [research plan](docs/research-plan.md).
+
+> **Research status:** Local prototype, not a production firewall or a proven AI-agent trap. It neither identifies AI callers nor permanently captures agents. Scripted experiments do **not** establish effectiveness against adaptive AI agents; that remains to be measured.
+
+**Explore:** [Run locally](#run-locally) · [Architecture](#architecture) · [Verification](#verification) · [Experiments](#tests-and-baseline) · [Contribute](CONTRIBUTING.md)
 
 ## Run locally
 
